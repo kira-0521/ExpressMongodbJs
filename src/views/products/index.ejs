@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>商品一覧</title>
+  </head>
+  <body>
+    <h1>商品一覧</h1>
+    <ul>
+      <% products.map((p) => { %>
+      <li style="display: flex; flex-bases: start">
+        <a href="/products/<%= p.id %>"><%= p.name %></a>
+        <a href="/products/<%= p.id %>/edit">編集</a>
+        <form action="/products/<%= p.id %>?_method=DELETE" method="POST">
+          <button>削除</button>
+        </form>
+      </li>
+      <% }) %>
+    </ul>
+    <a href="/products/new">新規作成</a>
+  </body>
+</html>
